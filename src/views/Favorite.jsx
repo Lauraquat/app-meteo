@@ -1,8 +1,8 @@
-import LocalWeather from "../components/LocalWeather";
+import Weather from "../components/Weather";
 
 const Favorite = () => {
     return(
-        <LocalWeather></LocalWeather>
+        <Weather></Weather>
     )
 }
 

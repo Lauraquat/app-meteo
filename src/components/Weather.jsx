@@ -1,18 +1,34 @@
 import React, {Component} from "react";
 import Card from "../components/Card";
-import weatherRepository from "../weatherRepository";
+import weatherRepository from "../repository/weatherRepository";
 
 class Weather extends Component{
     constructor(props){
         super(props);
         this.state = {
             currentWeather: null,
+            latitude: 0,
+            longitude : 0,
         };
     }
 
+    getLocation = () => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            this.setState({latitude : position.coords.latitude, longitude : position.coords.longitude});
+        })
+    }
+
+
+
+    // on a prit l'url de constant vers repository et on doit le redescendre dans constant
+
+
+
     async componentDidMount(){
-        const cityWeather = await weatherRepository.getAllWeatherWithFetch() //si on appelle avec axios, il faut enlever les commentaire dans weatherRepository et appeler la fonction correspondante
+        this.getLocation()
+        const cityWeather = await weatherRepository.getAllWeatherWithFetch( this.state.latitude, this.state.longitude) //si on appelle avec axios, il faut enlever les commentaire dans weatherRepository et appeler la fonction correspondante
         this.setState({currentWeather:cityWeather});
+
     }
 
     render(){
@@ -23,7 +39,9 @@ class Weather extends Component{
                     {this.state.currentWeather.name + ' => '}
                     {this.state.currentWeather.weather[0].description}
 {/*                     {this.state.currentWeather.weather[0].icon}
- */}
+ */}                
+                    <p>Latitude: {this.state.latitude}</p>
+                    <p>Longitude: {this.state.longitude}</p>
                 </div>
                 )}
             </div>
