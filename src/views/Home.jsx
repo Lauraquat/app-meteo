@@ -1,8 +1,9 @@
-import LocalWeather from "../components/LocalWeather";
+//import LocalWeather from "../components/LocalWeather";
+import Weather from "../components/Weather";
 
 const Home = () => {
     return(
-        <LocalWeather></LocalWeather>
+        <Weather></Weather>
     )
 }
 

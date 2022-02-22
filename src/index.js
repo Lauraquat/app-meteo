@@ -5,7 +5,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 //import {Provider} from "react-redux";
 //import './index.css';
 import App from './App';
-import LocalWeather from "./views/Home";
+import Home from "./views/Home";
 import Search from "./views/Search";
 import Favorite from "./views/Favorite";
 
@@ -17,7 +17,7 @@ ReactDOM.render(
   {/* <Provider store={store}> */}
     <Routes>
       <Route path="/" element={<App />}>
-        <Route path="home" element={<LocalWeather />}/>
+        <Route path="home" element={<Home />}/>
         <Route path="search" element={<Search />}/>
         <Route path="favorite" element={<Favorite />}/>
       </Route>
