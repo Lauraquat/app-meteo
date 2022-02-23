@@ -7,7 +7,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import App from './App';
 import Home from "./views/Home";
 import Search from "./views/Search";
-import Favorite from "./views/Favorite";
+import Favorites from "./views/Favorites";
 
 const rootElement = document.getElementById("root");
 
@@ -19,7 +19,7 @@ ReactDOM.render(
       <Route path="/" element={<App />}>
         <Route path="home" element={<Home />}/>
         <Route path="search" element={<Search />}/>
-        <Route path="favorite" element={<Favorite />}/>
+        <Route path="favorite" element={<Favorites />}/>
       </Route>
     </Routes>
     {/* </Provider> */}

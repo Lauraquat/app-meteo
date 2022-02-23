@@ -1,7 +1,8 @@
 import {useState} from "react"
 import {Input } from 'antd';
+import { connect } from "react-redux"
 import weatherRepository from "../repository/weatherRepository";
-
+import { addFavorite } from "../store/reducers/favoriteReducer"
 const Search = () => {
 
     const { Search } = Input;
@@ -10,6 +11,7 @@ const Search = () => {
     const [weatherDescription, setWeatherDescription] = useState(null);
     const [weatherTemp, setWeatherTemp] = useState(null);
     const [weatherIcon, setWeatherIcon] = useState(null);
+    const [listOfFavorites, setListOfFavorites] = [];
 
     const onSearch = async (city) => {
         setCity(city)
@@ -22,6 +24,7 @@ const Search = () => {
         setWeatherDescription(cityWeather.weather[0].description)
         setWeatherTemp(cityWeather.main.temp)
         setWeatherIcon(cityWeather.weather[0].icon)
+        
     }
 
     
@@ -46,6 +49,18 @@ const Search = () => {
             
         </>
     )
+
+    const mapDispatchToProps = dispatch => {
+        return{
+            addFavorite: (favorite) => dispatch(addFavorite(favorite))
+        }
+    }
+    
+    const mapStateToProps = state => {
+        return {
+            listOfFavorites: state.favorites.listOfFavorites
+        }
+    }
 }
 
-export default Search;
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

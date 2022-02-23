@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Card from "./Card";
+import CardFavorite from "./CardFavorite";
 import weatherRepository from "../repository/weatherRepository";
 
 class LocalWeather extends Component{
