@@ -39,7 +39,7 @@ export class SearchCity extends Component {
         const weatherTemp = cityWeather.main.temp;
         const weatherIcon = cityWeather.weather[0].icon;
 
-        this.setState({city : city,  weatherDescription : weatherDescription, weatherTemp : weatherTemp, weatherIcon : weatherIcon });
+        this.setState({city : city,  weatherDescription : weatherDescription, weatherTemp : weatherTemp, weatherIcon : weatherIcon, isFavorite : false });
     }
 
     
