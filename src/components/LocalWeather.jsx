@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import CardHour from "./CardHour";
+import CardFavorite from "./CardFavorite";
 import {EnvironmentOutlined} from '@ant-design/icons';
 import weatherRepository from "../repository/weatherRepository";
 
