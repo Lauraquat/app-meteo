@@ -1,8 +1,8 @@
-import Weather from "../components/Weather";
+import LocalWeather from "../components/LocalWeather";
 
 const Search = () => {
     return(
-        <Weather></Weather>
+        <LocalWeather></LocalWeather>
     )
 }
 

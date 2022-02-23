@@ -1,22 +1,27 @@
 import React, {Component} from "react";
-import Card from "../components/Card";
+import Card from "./Card";
 import weatherRepository from "../repository/weatherRepository";
 
-class Weather extends Component{
+class LocalWeather extends Component{
     constructor(props){
         super(props);
         this.state = {
             currentWeather: null,
             latitude: 0,
             longitude : 0,
+           
         };
     }
 
-    getLocation = () => {
-        navigator.geolocation.getCurrentPosition((position) => {
-            this.setState({latitude : position.coords.latitude, longitude : position.coords.longitude});
-        })
-    }
+    // getLocation = () => {
+    //     navigator.geolocation.getCurrentPosition((position) => {
+    //         this.setState({latitude : position.coords.latitude, longitude : position.coords.longitude});
+    //         let lat =  position.coords.latitude;
+
+    //         let long = position.coords.longitude;
+    //     })
+        
+    // }
 
 
 
@@ -24,12 +29,25 @@ class Weather extends Component{
 
 
 
-    async componentDidMount(){
-        this.getLocation()
-        const cityWeather = await weatherRepository.getAllWeatherWithFetch( this.state.latitude, this.state.longitude) //si on appelle avec axios, il faut enlever les commentaire dans weatherRepository et appeler la fonction correspondante
-        this.setState({currentWeather:cityWeather});
+    // async componentDidMount(){
+    //     this.getLocation()
+    //     const cityWeather = await weatherRepository.getAllWeatherWithFetch( this.state.latitude, this.state.longitude) //si on appelle avec axios, il faut enlever les commentaire dans weatherRepository et appeler la fonction correspondante
+    //     this.setState({currentWeather:cityWeather});
 
-    }
+    // }
+
+    async componentDidMount() {
+
+        navigator.geolocation.getCurrentPosition (async (position) => {
+    
+                let lat =  position.coords.latitude;
+                let long = position.coords.longitude;
+    
+                const cityWeather = await weatherRepository.getWeather(lat, long); 
+                this.setState({currentWeather:cityWeather, latitude : lat , longitude : long});
+             
+            });
+      }
 
     render(){
         return(
@@ -59,4 +77,4 @@ class Weather extends Component{
     }
 }
 
-export default Weather;
+export default LocalWeather;
