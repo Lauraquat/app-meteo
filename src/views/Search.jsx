@@ -1,5 +1,6 @@
 import {useState} from "react"
 import {Input } from 'antd';
+import {EnvironmentOutlined} from '@ant-design/icons';
 import weatherRepository from "../repository/weatherRepository";
 
 const Search = () => {
@@ -35,10 +36,12 @@ const Search = () => {
 
                 {weatherDescription &&(
                     <div>
-                        {city + ' => '}
-                        {weatherDescription}
-                        {weatherTemp + " °C"}
+                        
+                        <h3><EnvironmentOutlined />{" "+ city}</h3>
+                        <br />
                         <img src={"http://openweathermap.org/img/wn/"+ weatherIcon +"@2x.png"}></img>
+                        <h1>{weatherTemp + " °C"}</h1>
+                        <p>{weatherDescription}</p>
                     </div>
                 )}
 

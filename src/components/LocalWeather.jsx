@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Card from "./Card";
+import {EnvironmentOutlined} from '@ant-design/icons';
 import weatherRepository from "../repository/weatherRepository";
 
 class LocalWeather extends Component{
@@ -31,13 +32,11 @@ class LocalWeather extends Component{
             <div>
                 {this.state.currentWeather &&(
                 <div>
-                    {this.state.currentWeather.name + ' => '}
-                    {this.state.currentWeather.weather[0].description}
-                    {this.state.currentWeather.main.temp + " °C"}
+                    <h3><EnvironmentOutlined />{" "+ this.state.currentWeather.name}</h3>
+                    <br />
                     <img src={"http://openweathermap.org/img/wn/"+ this.state.currentWeather.weather[0].icon +"@2x.png"}></img>
-                
-                    <p>Latitude: {this.state.latitude}</p>
-                    <p>Longitude: {this.state.longitude}</p>
+                    <h1>{this.state.currentWeather.main.temp + " °C"}</h1>
+                    <p>{this.state.currentWeather.weather[0].description}</p>
                 </div>
                 )}
             </div>
