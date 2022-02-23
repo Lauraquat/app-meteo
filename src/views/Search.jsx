@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 import {EnvironmentOutlined} from '@ant-design/icons';
 import weatherService from "../services/weatherService";
 import { addFavorite } from "../store/reducers/favoriteReducer"
+import {HeartOutlined, HeartFilled } from '@ant-design/icons'
 
 
 const {Search} = Input;
@@ -17,9 +18,15 @@ export class SearchCity extends Component {
             weatherDescription : null,
             weatherTemp : null,
             weatherIcon : null,
-            listOfFavorites : []
-            
+            listOfFavorites : [],
+            isFavorite : false, 
         } 
+    }
+
+    handleFavorite = () =>{
+        console.log( this.state.city + " " + this.state.weatherDescription +" " + this.state.weatherIcon );
+        this.props.addFavorite({city: this.state.city, description: this.state.weatherDescription, icon : this.state.weatherIcon, temperature : this.state.weatherTemp});
+        this.setState({isFavorite : true})
     }
 
     onSearch = async (city) => {
@@ -44,7 +51,8 @@ export class SearchCity extends Component {
                 <div>
                     {this.state.weatherDescription &&(
                         <div>
-                        
+                            {this.state.isFavorite ? <HeartFilled /> :  <HeartOutlined onClick={() => this.handleFavorite()} />}
+                       
                             <h3><EnvironmentOutlined />{" "+ this.state.city}</h3>
                             <br />
                             <img src={"http://openweathermap.org/img/wn/"+ this.state.weatherIcon +"@2x.png"}></img>
