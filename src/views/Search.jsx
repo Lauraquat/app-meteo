@@ -2,7 +2,7 @@ import { Component} from "react"
 import {Input } from 'antd';
 import { connect } from "react-redux"
 import {EnvironmentOutlined} from '@ant-design/icons';
-import weatherRepository from "../repository/weatherRepository";
+import weatherService from "../services/weatherService";
 import { addFavorite } from "../store/reducers/favoriteReducer"
 
 
@@ -23,11 +23,11 @@ export class SearchCity extends Component {
     }
 
     onSearch = async (city) => {
-        const cityLocation = await weatherRepository.getLocationByCity(city);
+        const cityLocation = await weatherService.getLocationByCity(city);
         const latitude = cityLocation[0].lat;
         const longitude = cityLocation[0].lon; 
 
-        const cityWeather= await weatherRepository.getWeather(latitude, longitude);
+        const cityWeather= await weatherService.getWeather(latitude, longitude);
         const weatherDescription = cityWeather.weather[0].description;
         const weatherTemp = cityWeather.main.temp;
         const weatherIcon = cityWeather.weather[0].icon;

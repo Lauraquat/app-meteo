@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import CardHour from "./CardHour";
 import CardFavorite from "./CardFavorite";
 import {EnvironmentOutlined} from '@ant-design/icons';
-import weatherRepository from "../repository/weatherRepository";
+import weatherService from "../services/weatherService";
 
 class LocalWeather extends Component{
     constructor(props){
@@ -23,10 +23,10 @@ class LocalWeather extends Component{
                 let lat =  position.coords.latitude;
                 let long = position.coords.longitude;
     
-                const cityWeather = await weatherRepository.getWeather(lat, long); 
+                const cityWeather = await weatherService.getWeather(lat, long); 
                 this.setState({currentWeather:cityWeather, latitude : lat , longitude : long});
 
-                const cityWeatherByHour = await weatherRepository.getWeatherByHour(lat, long);
+                const cityWeatherByHour = await weatherService.getWeatherByHour(lat, long);
                 this.setState({weatherByHour:cityWeatherByHour, latitude: lat, longitude: long});
             //  console.log(cityWeatherByHour.hourly[0].temp);
              console.log(cityWeatherByHour.hourly);
