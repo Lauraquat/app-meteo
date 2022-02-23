@@ -13,29 +13,6 @@ class LocalWeather extends Component{
         };
     }
 
-    // getLocation = () => {
-    //     navigator.geolocation.getCurrentPosition((position) => {
-    //         this.setState({latitude : position.coords.latitude, longitude : position.coords.longitude});
-    //         let lat =  position.coords.latitude;
-
-    //         let long = position.coords.longitude;
-    //     })
-        
-    // }
-
-
-
-    // on a prit l'url de constant vers repository et on doit le redescendre dans constant
-
-
-
-    // async componentDidMount(){
-    //     this.getLocation()
-    //     const cityWeather = await weatherRepository.getAllWeatherWithFetch( this.state.latitude, this.state.longitude) //si on appelle avec axios, il faut enlever les commentaire dans weatherRepository et appeler la fonction correspondante
-    //     this.setState({currentWeather:cityWeather});
-
-    // }
-
     async componentDidMount() {
 
         navigator.geolocation.getCurrentPosition (async (position) => {
