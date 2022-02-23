@@ -33,8 +33,9 @@ class LocalWeather extends Component{
                 <div>
                     {this.state.currentWeather.name + ' => '}
                     {this.state.currentWeather.weather[0].description}
-{/*                     {this.state.currentWeather.weather[0].icon}
- */}                
+                    {this.state.currentWeather.main.temp + " °C"}
+                    <img src={"http://openweathermap.org/img/wn/"+ this.state.currentWeather.weather[0].icon +"@2x.png"}></img>
+                
                     <p>Latitude: {this.state.latitude}</p>
                     <p>Longitude: {this.state.longitude}</p>
                 </div>

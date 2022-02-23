@@ -1,4 +1,3 @@
-import LocalWeather from "../components/LocalWeather";
 import {useState} from "react"
 import {Input } from 'antd';
 import weatherRepository from "../repository/weatherRepository";
@@ -9,6 +8,8 @@ const Search = () => {
 
     const [city, setCity] = useState("");
     const [weatherDescription, setWeatherDescription] = useState(null);
+    const [weatherTemp, setWeatherTemp] = useState(null);
+    const [weatherIcon, setWeatherIcon] = useState(null);
 
     const onSearch = async (city) => {
         setCity(city)
@@ -19,11 +20,14 @@ const Search = () => {
         const cityWeather= await weatherRepository.getWeather(latitude, longitude)
         
         setWeatherDescription(cityWeather.weather[0].description)
+        setWeatherTemp(cityWeather.main.temp)
+        setWeatherIcon(cityWeather.weather[0].icon)
     }
+
+    
 
     return(
         <>
-            <LocalWeather></LocalWeather>
 
             <Search placeholder="Saisir une ville" onSearch={onSearch}  enterButton />
             
@@ -31,16 +35,15 @@ const Search = () => {
 
                 {weatherDescription &&(
                     <div>
-
                         {city + ' => '}
-
                         {weatherDescription}
-
+                        {weatherTemp + " °C"}
+                        <img src={"http://openweathermap.org/img/wn/"+ weatherIcon +"@2x.png"}></img>
                     </div>
                 )}
 
             </div>
-
+            
         </>
     )
 }
