@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import * as React from "react";
 import {Link, Outlet } from "react-router-dom";
 import './App.css';
+import LocalWeather from './components/LocalWeather';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
           <Link to="/home">Météo Locale</Link> | <Link to="/search">Recherche</Link> | <Link to="/favorite">Favoris</Link>
         </nav>
       </header>
-
+      <LocalWeather/>
       <Outlet />
 
     </div>

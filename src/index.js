@@ -16,11 +16,11 @@ ReactDOM.render(
   <BrowserRouter>
   <Provider store={store}> 
     <Routes>
-      <Route path="/" element={<App />}>
-        <Route path="home" element={<Home />}/>
-        <Route path="search" element={<SearchCity />}/>
-        <Route path="favorite" element={<Favorites />}/>
-      </Route>
+      <Route path="/" element={<App /> } />
+        <Route path="/home" element={<Home />}/>
+        <Route path="/search" element={<SearchCity />}/>
+        <Route path="/favorite" element={<Favorites />}/>
+      
     </Routes>
   </Provider> 
   </BrowserRouter>

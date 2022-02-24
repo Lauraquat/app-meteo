@@ -15,7 +15,8 @@ export const favoriteSlice = createSlice({
         removeFavorite:(state, action) => {
             const index = state.listOfFavorites.indexOf(action.payload)
             state.listOfFavorites.splice(index, 1)
-            
+            console.log(action.payload)
+            console.log(index)
             // state.isFavorite = false
             console.log("appel de remove favorite" );
            
