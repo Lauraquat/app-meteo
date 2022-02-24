@@ -1,0 +1,23 @@
+.cardHourDetails{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+.cardHour{
+    width: 40%;
+    margin: auto;
+    border : 1px solid;
+    margin-top: 30px;
+    background-color: #03047B;
+    border-radius: 25px;
+    font-size: 1.6em;
+}
+
+@media (max-width: 748px) {
+    .cardHour{
+        font-size: 1.6em;
+    }
+}

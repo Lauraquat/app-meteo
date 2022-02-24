@@ -8,9 +8,7 @@ function Header({}){
     return(
         
         <header>
-            {/* <h1>Navigation</h1> */}
-
-            <nav className="nav">
+            <nav className="header">
                 <Link to="/home"><HomeOutlined /></Link>  <Link to="/search"><SearchOutlined /></Link>  <Link to="/favorite"><HeartOutlined /></Link>
             </nav>
         </header>
