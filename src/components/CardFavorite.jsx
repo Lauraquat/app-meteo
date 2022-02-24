@@ -1,4 +1,4 @@
-import "../assets/CardFavoriteStyle.css"
+
 function CardFavorite({city, description, icon, temperature}){
 
     return(
