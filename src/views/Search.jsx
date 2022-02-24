@@ -61,7 +61,6 @@ export class SearchCity extends Component {
                             {this.state.isFavorite ? <HeartFilled /> :  <HeartOutlined onClick={() => this.handleFavorite()} />}
                        
                             <h3><EnvironmentOutlined />{" "+ this.state.city}</h3>
-                            <br />
                             <img src={"http://openweathermap.org/img/wn/"+ this.state.weatherIcon +"@2x.png"}></img>
                             <h1>{this.state.weatherTemp + " °C"}</h1>
                             <p>{this.state.weatherDescription}</p>

@@ -1,11 +1,18 @@
+import '../assets/card.css';
+
 function CardHour({hour, temperature, description, icon}){
 
     return(
-        <div>
-            <h3><b>{"Prévisionnel à " + hour + "h"}</b></h3>
-            <p>{temperature + " °C"}</p> <p>{description}</p> <p>{icon}</p>
+        <div className='cardHour'>
+             
+            <div className="cardHourDetails">
+                <p>{hour + "h"}</p>
+                <p>{description}</p>
+                <p>{temperature + " °C"}</p>
+                <p>{icon}</p>
+            </div>
         </div>
-    );
+        );
 }
 
 export default CardHour;

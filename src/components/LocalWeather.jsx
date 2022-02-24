@@ -34,13 +34,12 @@ class LocalWeather extends Component{
 
     render(){
         return(
-            <div className="App">
+            <div className="localWeather App">
                 <Header></Header>
                 <div>
                     {this.state.currentWeather &&(
-                    <div>
+                    <div className="details">
                         <h3><EnvironmentOutlined />{" "+ this.state.currentWeather.name}</h3>
-                        <br />
                         <img src={"http://openweathermap.org/img/wn/"+ this.state.currentWeather.weather[0].icon +"@2x.png"}></img>
                         <h1>{this.state.currentWeather.main.temp + " °C"}</h1>
                         <p>{this.state.currentWeather.weather[0].description}</p>
@@ -51,13 +50,11 @@ class LocalWeather extends Component{
                 <div>
                 {this.state.weatherByHour.length > 0 &&(
                     <div>
-                        <main style={{display:"flex", justifyContent:"center"}}>
-                            <div>
-                                {this.state.weatherByHour.map((hour, index) => {
-                                    return <CardHour key={index} hour={hour.hour} temperature={hour.temperature} description={hour.description} icon={hour.icon}/>
-                                })}
-                            </div>
-                        </main>
+                        <div>
+                            {this.state.weatherByHour.map((hour, index) => {
+                                return <CardHour key={index} hour={hour.hour} temperature={hour.temperature} description={hour.description} icon={hour.icon}/>
+                            })}
+                        </div>
                     </div>
                     )}  
                 </div>

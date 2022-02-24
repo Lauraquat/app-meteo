@@ -13,8 +13,7 @@ export default{
                 temperature: this.getDegreesWithoutDecimal(forecast.temp),
                 description: forecast.weather[0].description,
                 icon: <img src={"http://openweathermap.org/img/wn/"+ forecast.weather[0].icon +"@2x.png"}></img>
-            }
-            
+            }    
         }))
     },
     

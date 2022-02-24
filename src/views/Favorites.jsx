@@ -39,9 +39,8 @@ class Favorites extends Component {
                     
                     return(
                         <div>
-                            <CardFavorite  key={index} city={cardCity.city} description={cardCity.description}  icon={cardCity.icon}  temperature={cardCity.temperature} />
-                            <Button onClick={() => this.handleFavorite(index)} > Supprimer</Button>
-                        
+                            <CardFavorite key={index} city={cardCity.city} description={cardCity.description} icon={cardCity.icon} temperature={cardCity.temperature}/>
+                            <Button onClick={() => this.handleFavorite(index)}>Supprimer</Button>
                         </div>
                     )
                 })}
