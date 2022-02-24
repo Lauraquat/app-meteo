@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 import CardHour from "./CardHour";
-import CardFavorite from "./CardFavorite";
+import '../assets/localWeather.css';
 import {EnvironmentOutlined} from '@ant-design/icons';
 import weatherService from "../services/weatherService";
+import Header from "./Header";
 
 class LocalWeather extends Component{
     constructor(props){
@@ -33,7 +34,8 @@ class LocalWeather extends Component{
 
     render(){
         return(
-            <div>
+            <div className="App">
+                <Header></Header>
                 <div>
                     {this.state.currentWeather &&(
                     <div>
