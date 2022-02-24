@@ -4,8 +4,8 @@ import LocalWeather from "../components/LocalWeather";
 const Home = () => {
     return(
         <div>
-            <LocalWeather></LocalWeather>,
-            <CardHour></CardHour>
+            <LocalWeather></LocalWeather>
+            {/* <CardHour></CardHour> */}
         </div>
     )
 }

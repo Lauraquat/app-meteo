@@ -9,7 +9,7 @@ class LocalWeather extends Component{
         super(props);
         this.state = {
             currentWeather: null,
-            weatherByHour: null,
+            weatherByHour: [],
             latitude: 0,
             longitude : 0,
            
@@ -20,19 +20,25 @@ class LocalWeather extends Component{
 
         navigator.geolocation.getCurrentPosition (async (position) => {
     
-                let lat =  position.coords.latitude;
-                let long = position.coords.longitude;
-    
-                const cityWeather = await weatherService.getWeather(lat, long); 
-                this.setState({currentWeather:cityWeather, latitude : lat , longitude : long});
+            let lat =  position.coords.latitude;
+            let long = position.coords.longitude;
 
-                const cityWeatherByHour = await weatherService.getWeatherByHour(lat, long);
-                this.setState({weatherByHour:cityWeatherByHour, latitude: lat, longitude: long});
-            //  console.log(cityWeatherByHour.hourly[0].temp);
-             console.log(cityWeatherByHour.hourly);
-            //  console.log(cityWeatherByHour);
+            const cityWeather = await weatherService.getWeather(lat, long); 
+            this.setState({currentWeather:cityWeather, latitude : lat , longitude : long});
 
-            });
+            const cityWeatherByHour = await weatherService.getWeatherByHour(lat, long);
+            this.setState({weatherByHour:cityWeatherByHour, latitude: lat, longitude: long});
+        //  console.log(cityWeatherByHour.hourly[0].temp);
+        //  console.log(cityWeatherByHour.hourly);
+        //  console.log(cityWeatherByHour);
+
+
+        // console.log(new Date(dt*1000));
+
+        // const tempSansDecimal = await weatherService.getTemperature(this.state.currentWeather.main.temp)
+        // console.log(tempSansDecimal);
+
+        });
       }
 
     render(){
@@ -51,34 +57,19 @@ class LocalWeather extends Component{
                 </div>
 
                 <div>
-                {this.state.weatherByHour &&(
+                {this.state.weatherByHour.length > 0 &&(
                     <div>
                         <main style={{display:"flex", justifyContent:"center"}}>
-                            {this.state.weatherByHour.hourly.length < 24 &&(
-                                    <div>
-                                        {this.state.weatherByHour.map((hour) => {
-                                        return <CardHour key={hour.hourly.dt} temp={hour.hourly.temp}/>
-                                    })}
-                                </div>
-                            )}
+                            <div>
+                                {this.state.weatherByHour.map((hour, index) => {
+                                    return <CardHour key={index} hour={hour.hour} temperature={hour.temperature} description={hour.description} icon={hour.icon}/>
+                                })}
+                            </div>
                         </main>
                     </div>
                     )}  
                 </div>
- 
-
             </div>
-
-
-/*             <main style={{display:"flex", justifyContent:"center"}}>
-                {this.state.listOfWeather.length > 0 &&(
-                    <div>
-                        {this.state.listOfWeather.map((weather) => {
-                            return <CardHour key={weather.weather.id} temps={weather.description} icon={weather.icon} />
-                        })}
-                    </div>
-                )}
-             </main>*/
         );
     }
 }
