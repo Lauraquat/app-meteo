@@ -1,0 +1,13 @@
+nav{
+    text-align: center;
+    margin: 30px;
+}
+
+.anticon{
+    width: 200px;
+}
+
+.nav svg{
+    width: 2.5em;
+    height: 2.5em;
+}

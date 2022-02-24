@@ -5,7 +5,8 @@ import {EnvironmentOutlined} from '@ant-design/icons';
 import weatherService from "../services/weatherService";
 import { addFavorite} from "../store/reducers/favoriteReducer"
 import {HeartOutlined, HeartFilled } from '@ant-design/icons'
-
+import Header from "../components/Header";
+import '../App.css';
 
 const {Search} = Input;
 
@@ -47,9 +48,9 @@ export class SearchCity extends Component {
     render() {
         return(
             <>
+                <Header></Header>
                 <Search placeholder="Saisir une ville" onSearch={this.onSearch}  enterButton />
-            
-                <div>
+                <div className="App">
                     {this.state.weatherDescription &&(
                         <div>
                             {this.state.isFavorite ? <HeartFilled /> :  <HeartOutlined onClick={() => this.handleFavorite()} />}

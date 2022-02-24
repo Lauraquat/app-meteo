@@ -3,6 +3,8 @@ import CardFavorite from "../components/CardFavorite"
 import {connect} from "react-redux"
 import { Button } from "antd";
 import { removeFavorite } from "../store/reducers/favoriteReducer"
+import Header from "../components/Header";
+import '../App.css';
 
 
 class Favorites extends Component {
@@ -30,25 +32,26 @@ class Favorites extends Component {
         // Utilisation classique (pensez bien à comparer les props) :
         if (this.props.listOfFavyorites !== prevProps.listOfFavorites) {
             return(
-                <>
+                <div className="App">
                     {this.state.listOfFavorites.map((cardCity, index) => {
                         
                         return(
-                            <>
-                                <CardFavorite  key={index} city={cardCity.city} description={cardCity.description}  icon={cardCity.icon}  temperature={cardCity.temperature} />
+                            <div>
+                                <CardFavorite key={index} city={cardCity.city} description={cardCity.description} icon={cardCity.icon} temperature={cardCity.temperature}/>
                                 <Button onClick={() => this.handleFavorite()} > Supprimer</Button>
                             
-                            </>
+                            </div>
                         )
                     })}
-                </>
+                </div>
             )
         }
       }
 
    render (){
         return(
-            <>
+            <>                
+                <Header></Header>
                 {this.state.listOfFavorites.map((cardCity, index) => {
                     
                     return(
