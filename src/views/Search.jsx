@@ -3,7 +3,7 @@ import {Input } from 'antd';
 import { connect } from "react-redux"
 import {EnvironmentOutlined} from '@ant-design/icons';
 import weatherService from "../services/weatherService";
-import { addFavorite } from "../store/reducers/favoriteReducer"
+import { addFavorite} from "../store/reducers/favoriteReducer"
 import {HeartOutlined, HeartFilled } from '@ant-design/icons'
 
 
@@ -39,7 +39,8 @@ export class SearchCity extends Component {
         const weatherTemp = cityWeather.main.temp;
         const weatherIcon = cityWeather.weather[0].icon;
 
-        this.setState({city : city,  weatherDescription : weatherDescription, weatherTemp : weatherTemp, weatherIcon : weatherIcon, isFavorite : false });
+        this.setState({city : city,  weatherDescription : weatherDescription, weatherTemp : weatherTemp, weatherIcon : weatherIcon});
+        this.setState({isFavorite : false})
     }
 
     
@@ -71,13 +72,15 @@ export class SearchCity extends Component {
 
 const mapDispatchToProps = dispatch => {
     return{
-        addFavorite: (favorite) => dispatch(addFavorite(favorite))
+        addFavorite: (favorite) => dispatch(addFavorite(favorite)),
+        
     }
 }
     
 const mapStateToProps = state => {
     return {
-        listOfFavorites: state.favorites.listOfFavorites
+        listOfFavorites: state.favorites.listOfFavorites,
+        isFavorite: state.favorites.isFavorite
     }
 }
 
