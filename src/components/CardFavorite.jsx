@@ -1,7 +1,8 @@
+import "../assets/CardFavoriteStyle.css"
 function CardFavorite({city, description, icon, temperature}){
 
     return(
-        <div>
+        <div className="CardFavorite">
             <h3>{city}</h3>
             <h4>
                 <b>{description }</b>
