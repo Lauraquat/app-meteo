@@ -1,5 +1,37 @@
 body {
     background-color: #03045e;
     width: 100%;
-    color : red;
+    font-style: roboto;
 }
+
+.search h1 {
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-top: 4rem;
+    
+}
+
+.search p{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size:medium;
+}
+
+.searchBar{
+    width: 40%;
+    margin: auto;
+    margin-top: 2rem;
+    /* border-radius: 20%; */
+
+    
+}
+
+.ant-input {
+    border-radius: 25px;
+  }
+
+.ant-input-group-addon{
+    border-radius: 25px;
+  }

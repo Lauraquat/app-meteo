@@ -50,7 +50,11 @@ export class SearchCity extends Component {
         return(
             <div className="search">
                 <Header></Header>
-                <Search placeholder="Saisir une ville" onSearch={this.onSearch}  enterButton />
+                <h1>Rechercher une ville</h1>
+                <p>Rechercher le nom d'une ville pour connaître sa météo !</p>
+                <div className="searchBar">
+                    <Search placeholder="Paris" onSearch={this.onSearch}  enterButton />
+                </div>
                 <div >
                     {this.state.weatherDescription &&(
                         <div>
