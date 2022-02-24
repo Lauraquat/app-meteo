@@ -6,63 +6,46 @@ import { removeFavorite } from "../store/reducers/favoriteReducer"
 import Header from "../components/Header";
 import '../App.css';
 
-
 class Favorites extends Component {
 
     constructor(props){
         super(props)
         this.state ={
             listOfFavorites: [],
-            // isFavorite : true,
         }
     }
 
     componentDidMount = () => {
         this.setState({listOfFavorites: this.props.listOfFavorites})
-        // this.setState({isFavorite: this.props.isFavorite})
     }
 
-    handleFavorite = () =>{
-        console.log("appel de suppression favoris")
-        this.props.removeFavorite({city: this.state.city, description: this.state.weatherDescription, icon : this.state.weatherIcon, temperature : this.state.weatherTemp});
-    //    console.log(this.state)
+    handleFavorite = (index) =>{  
+        this.props.removeFavorite(index);
     }
 
     componentDidUpdate(prevProps) {
-        // Utilisation classique (pensez bien à comparer les props) :
-        if (this.props.listOfFavyorites !== prevProps.listOfFavorites) {
-            return(
-                <div className="App">
-                    {this.state.listOfFavorites.map((cardCity, index) => {
-                        
-                        return(
-                            <div>
-                                <CardFavorite key={index} city={cardCity.city} description={cardCity.description} icon={cardCity.icon} temperature={cardCity.temperature}/>
-                                <Button onClick={() => this.handleFavorite()} > Supprimer</Button>
-                            
-                            </div>
-                        )
-                    })}
-                </div>
-            )
+        if (this.props.listOfFavorites !== prevProps.listOfFavorites) {
+            this.setState({listOfFavorites : this.props.listOfFavorites})
+            return true
         }
+        return false
       }
 
    render (){
         return(
-            <>                
+            <div>                
                 <Header></Header>
                 {this.state.listOfFavorites.map((cardCity, index) => {
                     
                     return(
-                        <>
+                        <div>
                             <CardFavorite  key={index} city={cardCity.city} description={cardCity.description}  icon={cardCity.icon}  temperature={cardCity.temperature} />
-                            <Button onClick={() => this.handleFavorite()} > Supprimer</Button>
+                            <Button onClick={() => this.handleFavorite(index)} > Supprimer</Button>
                         
-                        </>
+                        </div>
                     )
                 })}
-            </>
+            </div>
         )
     }
  

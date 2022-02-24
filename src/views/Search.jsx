@@ -25,7 +25,6 @@ export class SearchCity extends Component {
     }
 
     handleFavorite = () =>{
-        // console.log( this.state.city + " " + this.state.weatherDescription +" " + this.state.weatherIcon );
         this.props.addFavorite({city: this.state.city, description: this.state.weatherDescription, icon : this.state.weatherIcon, temperature : this.state.weatherTemp});
         this.setState({isFavorite : true})
     }
@@ -47,7 +46,7 @@ export class SearchCity extends Component {
     
     render() {
         return(
-            <>
+            <div>
                 <Header></Header>
                 <Search placeholder="Saisir une ville" onSearch={this.onSearch}  enterButton />
                 <div className="App">
@@ -66,7 +65,7 @@ export class SearchCity extends Component {
 
                 </div>
             
-            </>
+            </div>
         )
     }
 }
@@ -85,6 +84,5 @@ const mapStateToProps = state => {
     }
 }
 
-
  export default connect(mapStateToProps, mapDispatchToProps)(SearchCity);
-// export default Search;
+

@@ -29,16 +29,6 @@ class LocalWeather extends Component{
 
             const cityWeatherByHour = await weatherService.getWeatherByHour(lat, long);
             this.setState({weatherByHour:cityWeatherByHour, latitude: lat, longitude: long});
-        //  console.log(cityWeatherByHour.hourly[0].temp);
-        //  console.log(cityWeatherByHour.hourly);
-        //  console.log(cityWeatherByHour);
-
-
-        // console.log(new Date(dt*1000));
-
-        // const tempSansDecimal = await weatherService.getTemperature(this.state.currentWeather.main.temp)
-        // console.log(tempSansDecimal);
-
         });
       }
 
