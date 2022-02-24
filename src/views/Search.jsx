@@ -6,6 +6,8 @@ import weatherService from "../services/weatherService";
 import { addFavorite} from "../store/reducers/favoriteReducer"
 import {HeartOutlined, HeartFilled } from '@ant-design/icons'
 
+import {Link } from "react-router-dom";
+
 
 const {Search} = Input;
 
@@ -24,7 +26,6 @@ export class SearchCity extends Component {
     }
 
     handleFavorite = () =>{
-        // console.log( this.state.city + " " + this.state.weatherDescription +" " + this.state.weatherIcon );
         this.props.addFavorite({city: this.state.city, description: this.state.weatherDescription, icon : this.state.weatherIcon, temperature : this.state.weatherTemp});
         this.setState({isFavorite : true})
     }
@@ -84,6 +85,5 @@ const mapStateToProps = state => {
     }
 }
 
-
  export default connect(mapStateToProps, mapDispatchToProps)(SearchCity);
-// export default Search;
+
