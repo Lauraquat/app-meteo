@@ -1,4 +1,5 @@
 import weatherRepository from "../repository/weatherRepository";
+import weatherFactory from "../factory/weatherFactory";
 
 
 const weatherService={
@@ -6,14 +7,16 @@ const weatherService={
         return weatherRepository.fetchWeather(latitude, longitude);
     },
 
-    getWeatherByHour(latitude, longitude){
-        //truncate fetchWeatherbyHour + mise en style "h+1..."
-        return weatherRepository.fetchWeatherByHour(latitude, longitude);
+    async getWeatherByHour(latitude, longitude){
+        const rawForecast = await weatherRepository.fetchWeatherByHour(latitude, longitude);        
+        const forecast = weatherFactory.getWeatherFormatted(rawForecast);
+        return forecast;
     },
 
     getLocationByCity(city){
         return weatherRepository.fetchLocationByCity(city);
     }
+    
 }
 
 export default weatherService

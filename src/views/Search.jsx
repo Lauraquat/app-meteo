@@ -24,7 +24,7 @@ export class SearchCity extends Component {
     }
 
     handleFavorite = () =>{
-        console.log( this.state.city + " " + this.state.weatherDescription +" " + this.state.weatherIcon );
+        // console.log( this.state.city + " " + this.state.weatherDescription +" " + this.state.weatherIcon );
         this.props.addFavorite({city: this.state.city, description: this.state.weatherDescription, icon : this.state.weatherIcon, temperature : this.state.weatherTemp});
         this.setState({isFavorite : true})
     }
