@@ -2,6 +2,7 @@
     background: linear-gradient(#6b66bd, #00d4ff);
     color: #ffffff;
     background-attachment: fixed;
+    padding-bottom: 40px;
 }
 
 .localWeather h3{
