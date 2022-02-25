@@ -6,10 +6,10 @@ function CardHour({hour, temperature, description, icon}){
         <div className='cardHour'>
              
             <div className="cardHourDetails">
-                <p>{hour + "h"}</p>
-                <p>{description}</p>
-                <p>{temperature + " °C"}</p>
-                <p>{icon}</p>
+                <div className='hour'>{hour + "h"}</div>
+                <div>{description}</div>
+                <div>{temperature + " °C"}</div>
+                <div>{icon}</div>
             </div>
         </div>
         );
