@@ -1,7 +1,5 @@
-import {Link} from "react-router-dom";
-import '../assets/header.css';
-import { HomeOutlined, SearchOutlined, HeartOutlined} from '@ant-design/icons';
-
+import { Link } from "react-router-dom";
+import { HomeOutlined, SearchOutlined, HeartOutlined } from '@ant-design/icons';
 
 function Header({}){
     return( 

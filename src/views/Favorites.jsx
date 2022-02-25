@@ -1,6 +1,6 @@
 import { Component } from "react";
 import CardFavorite from "../components/CardFavorite"
-import {connect} from "react-redux"
+import { connect } from "react-redux"
 import { Button } from "antd";
 import { removeFavorite } from "../store/reducers/favoriteReducer"
 import Header from "../components/Header";
@@ -33,11 +33,12 @@ class Favorites extends Component {
         return false
       }
 
-   render (){
+   render(){
         return(
             <div className="FavoritePage">                
                 <Header></Header>
                 <h1>Liste de vos favoris</h1>
+                
                 {this.state.listOfFavorites.map((cardCity, index) => {    
                     return(
                         <div className="favoriteContainer">
@@ -53,19 +54,16 @@ class Favorites extends Component {
 }
 
 const mapStateToProps = state => {
-    return {
+    return{
         listOfFavorites: state.favorites.listOfFavorites,
         isFavorite: state.favorites.isFavorite
     }
 }
-
 
 const mapDispatchToProps = dispatch => {
     return{
         removeFavorite: (favorite) => dispatch(removeFavorite(favorite))
     }
 }
-    
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

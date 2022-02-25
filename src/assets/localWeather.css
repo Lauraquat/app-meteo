@@ -5,7 +5,7 @@
     padding-bottom: 40px;
 }
 
-.localWeather .details .date{
+.localWeather .details .date p{
     font-weight: bold;
     color: white;
     margin: 0 !important;
@@ -41,12 +41,11 @@ hr{
 }
 
 @media (max-width: 767px) {
-    .localWeather .details .date{
+    .localWeather .details .date p{
         font-size: 1.5em;
         font-weight: bold;
         color: white;
         margin: 0 !important;
         padding: 0;    
     }
-    
 }

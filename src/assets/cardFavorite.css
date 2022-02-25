@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 40px;
 }
 
 .FavoritePage h1 {
@@ -102,7 +103,6 @@
     .deleteButton {
        margin-bottom: 1.5rem;
        margin: auto;
-    
     }   
 }
 

@@ -1,6 +1,5 @@
 @import '~antd/dist/antd.css';
 
-
 .App {
   text-align: center;
 }
@@ -16,7 +15,6 @@
   }
 }
 
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -26,6 +24,8 @@
   }
 }
 
+
+/******HEADER COMMUN******/
 
 nav{
   text-align: center;
@@ -52,19 +52,16 @@ nav{
       width: 1.5em;
       height: 1.5em;
   }
-  
 }
-
 
 @media (max-width: 480px) {
   .header .anticon{
-      width: 100px;
+      width: 60px;
       color: #ffffff;
   }
   
   .header svg{
       width: 1.5em;
       height: 1.5em;
-  }
-  
+  } 
 }

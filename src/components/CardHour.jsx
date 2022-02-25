@@ -11,7 +11,7 @@ function CardHour({hour, temperature, description, icon}){
                 <div>{icon}</div>
             </div>
         </div>
-        );
+    );
 }
 
 export default CardHour;

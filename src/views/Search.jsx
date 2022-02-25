@@ -1,10 +1,10 @@
 import { Component} from "react"
-import {Input } from 'antd';
+import { Input } from 'antd';
 import { connect } from "react-redux"
-import {EnvironmentOutlined} from '@ant-design/icons';
+import { EnvironmentOutlined } from '@ant-design/icons';
 import weatherService from "../services/weatherService";
-import { addFavorite} from "../store/reducers/favoriteReducer"
-import {HeartOutlined, HeartFilled } from '@ant-design/icons'
+import { addFavorite } from "../store/reducers/favoriteReducer"
+import { HeartOutlined, HeartFilled } from '@ant-design/icons'
 import Header from "../components/Header";
 import "../assets/searchStyle.css"
 
@@ -35,9 +35,9 @@ export class SearchCity extends Component {
         const longitude = cityLocation[0].lon; 
 
         const cityWeather= await weatherService.getWeather(latitude, longitude);
-        const weatherDescription = cityWeather.weather[0].description;
-        const weatherTemp = cityWeather.main.temp;
-        const weatherIcon = cityWeather.weather[0].icon;
+        const weatherDescription = cityWeather.description;
+        const weatherTemp = cityWeather.temp;
+        const weatherIcon = cityWeather.icon;
         this.setState({city : city,  weatherDescription : weatherDescription, weatherTemp : weatherTemp, weatherIcon : weatherIcon});
         this.setState({isFavorite : false})
 
@@ -46,7 +46,6 @@ export class SearchCity extends Component {
 
     }
 
-    
     render() {
         return(
             <div className="search">

@@ -1,5 +1,4 @@
-import {API_BASE_URL} from "../services/constants";
-
+import { API_BASE_URL } from "../services/constants";
 
 const weatherRepository={
     
