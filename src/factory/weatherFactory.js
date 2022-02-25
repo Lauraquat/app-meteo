@@ -8,7 +8,6 @@ export default{
     getWeatherFormatted(forecasts){
         return this.getOnlyFirst24Hours(forecasts.hourly.map(forecast=>{
             return {
-                
                 hour: new Date(forecast.dt*1000).getHours(),
                 temperature: this.getDegreesWithoutDecimal(forecast.temp),
                 description: forecast.weather[0].description,
@@ -22,5 +21,40 @@ export default{
         const deg = Math.trunc(degDec);
     
         return deg
+    },
+
+    getFormattedLocalWeather(weather){
+        const city = weather.name;
+        const temp = weather.main.temp;
+        const description = weather.weather[0].description;
+        const icon = weather.weather[0].icon;
+        const dt = weather.dt;
+
+        return {
+            "city": city,
+            "temp": temp,
+            "description": description,
+            "icon": icon,
+            "date": this.getCompleteDate(dt)
+        }
+    },
+
+    getCompleteDate(dt){
+        const days = ["lundi", "mardi","mercredi", "jeudi", "vendredi", "samedi", "dimanche"];
+        const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+        const day = days[new Date(dt*1000).getDay()-1];
+        const numberDay = new Date(dt*1000).getDate();
+        const month = months[new Date(dt*1000).getMonth()];
+        const year = new Date(dt*1000).getFullYear();
+        const hour = new Date(dt*1000).getHours();
+        const minutes = new Date(dt*1000).getMinutes();
+        const fullHour = `${hour}:${minutes}`;
+        const fullDate = `${day} ${numberDay} ${month} ${year}`
+        const ObjDate = {
+            "fullHour": fullHour,
+            "fullDate": fullDate
+        }
+        return ObjDate;
+
     }
 }

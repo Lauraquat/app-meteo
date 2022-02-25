@@ -27,11 +27,13 @@ class LocalWeather extends Component{
 
             const cityWeather = await weatherService.getWeather(lat, long); 
             this.setState({currentWeather:cityWeather, latitude : lat , longitude : long});
+            
+            console.log(cityWeather);
 
             const cityWeatherByHour = await weatherService.getWeatherByHour(lat, long);
             this.setState({weatherByHour:cityWeatherByHour, latitude: lat, longitude: long});
 
-            const temperature = this.state.currentWeather.main.temp;
+            const temperature = this.state.currentWeather.temp;
             const temperatureWithoutDegree = weatherService.getTempWithoutDecimal(temperature);
             this.setState({temperatureWithoutDegree});
         });
@@ -43,11 +45,17 @@ class LocalWeather extends Component{
                 <Header></Header>
                 <div>
                     {this.state.currentWeather &&(
+
                     <div className="details">
-                        <h3><EnvironmentOutlined />{" "+ this.state.currentWeather.name}</h3>
-                        <img src={"http://openweathermap.org/img/wn/"+ this.state.currentWeather.weather[0].icon +"@2x.png"}></img>
+                        <div>
+                            <p className="date">{this.state.currentWeather.date.fullDate}</p>
+                            <p className="date">{this.state.currentWeather.date.fullHour}</p>
+                        </div>
+
+                        <h3><EnvironmentOutlined />{" "+ this.state.currentWeather.city}</h3>
+                        <img src={"http://openweathermap.org/img/wn/"+ this.state.currentWeather.icon +"@2x.png"}></img>
                         <h1>{this.state.temperatureWithoutDegree + " °C"}</h1>
-                        <p>{this.state.currentWeather.weather[0].description}</p>
+                        <p>{this.state.currentWeather.description}</p>
                     </div>
                     )}  
                 </div>
