@@ -23,7 +23,7 @@
     font-size: 1.6em;  
 }
 
-.cardFavorite h4 {
+.cardFavorite .cardDetails {
     color: white;
     width: 100%;
     display: flex;
@@ -31,14 +31,14 @@
     padding-bottom: 20px;
 }
 
-.cardFavorite b , p {
+.cardFavorite p {
     padding-top: 30px;
 }
 
 .favoriteContainer{
     background-color: #41399b;
     border-radius: 25px;
-    width: 60%;
+    width: 80%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -62,18 +62,19 @@
     font-size: large;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
      .favoriteContainer{
         width: 80%;
         display: flex;
         flex-direction: column;
         padding-bottom: 2rem;
-    }  
+    } 
+    
 
-    .cardDetails{
+    .cardFavorite .cardDetails{
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        padding: 0;
     }
 
     .cardFavorite h4 {
@@ -85,15 +86,14 @@
         padding-bottom: 10px;
     }
 
-    .cardFavorite b {
+    .cardFavorite .city {
         font-size: xx-large;
         margin-bottom: 2rem;
     }
 
-    .cardFavorite b , p {
+    .cardFavorite p {
         text-align: center;
         padding-top: 0px;
-        padding-bottom: 5px;
     }
 
     .deleteButton span { 
