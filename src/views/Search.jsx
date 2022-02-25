@@ -40,9 +40,14 @@ export class SearchCity extends Component {
         const weatherDescription = cityWeather.weather[0].description;
         const weatherTemp = cityWeather.main.temp;
         const weatherIcon = cityWeather.weather[0].icon;
-
         this.setState({city : city,  weatherDescription : weatherDescription, weatherTemp : weatherTemp, weatherIcon : weatherIcon});
+
         this.setState({isFavorite : false})
+
+        // const temperature = this.state.weatherTemp;
+        const temperatureWithoutDegree = weatherService.getTempWithoutDecimal(weatherTemp);
+        this.setState({weatherTemp:temperatureWithoutDegree});
+
     }
 
     

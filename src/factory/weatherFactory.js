@@ -1,7 +1,7 @@
 export default{
 
     getOnlyFirst24Hours(forecast){
-        const twentyFourHoursforecast = forecast.slice(1, 24);
+        const twentyFourHoursforecast = forecast.slice(1, 25);
         return twentyFourHoursforecast;
     },
 
@@ -21,6 +21,6 @@ export default{
         const degDec = temp;
         const deg = Math.trunc(degDec);
     
-        return deg  
+        return deg
     }
 }

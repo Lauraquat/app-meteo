@@ -6,6 +6,11 @@ const weatherService={
     getWeather(latitude, longitude){
         return weatherRepository.fetchWeather(latitude, longitude);
     },
+    
+    getTempWithoutDecimal(temperature){
+        const degreesWithoutDecimal = weatherFactory.getDegreesWithoutDecimal(temperature);
+        return degreesWithoutDecimal;
+    },
 
     async getWeatherByHour(latitude, longitude){
         const rawForecast = await weatherRepository.fetchWeatherByHour(latitude, longitude);        
