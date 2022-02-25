@@ -5,6 +5,8 @@ import { Button } from "antd";
 import { removeFavorite } from "../store/reducers/favoriteReducer"
 import Header from "../components/Header";
 import '../App.css';
+import "../assets/cardFavorite.css"
+
 
 class Favorites extends Component {
 
@@ -33,14 +35,15 @@ class Favorites extends Component {
 
    render (){
         return(
-            <div>                
+            <div className="FavoritePage">                
                 <Header></Header>
+                <h1>Liste de vos favoris</h1>
                 {this.state.listOfFavorites.map((cardCity, index) => {
                     
                     return(
-                        <div>
+                        <div className="favoriteContainer">
                             <CardFavorite key={index} city={cardCity.city} description={cardCity.description} icon={cardCity.icon} temperature={cardCity.temperature}/>
-                            <Button onClick={() => this.handleFavorite(index)}>Supprimer</Button>
+                            <Button className="deleteButton" onClick={() => this.handleFavorite(index)}>Supprimer</Button>
                         </div>
                     )
                 })}

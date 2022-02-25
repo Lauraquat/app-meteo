@@ -1,0 +1,69 @@
+.FavoritePage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.FavoritePage h1 {
+    color: white;
+}
+
+.cardDetails{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+ 
+}
+
+.cardFavorite{
+    width: 60%;
+    margin: auto;
+    margin-top: 30px;
+    
+    border-radius: 25px;
+    font-size: 1.6em;
+    
+}
+
+.cardFavorite h4 {
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 20px;
+}
+
+.cardFavorite b , p {
+    padding-top: 30px;
+}
+
+.favoriteContainer{
+    background-color: #41399b;
+    border-radius: 25px;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 40px;
+    
+}
+
+.deleteButton {
+    background: none;
+    border: none;
+    margin-right: 3rem; 
+
+}
+
+.deleteButton:hover {
+    background: none;
+    border: none;  
+    color : #ffd1d1
+}
+
+.deleteButton span {
+    color: white;
+    font-size: large;
+}
+

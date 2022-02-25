@@ -1,15 +1,18 @@
+import "../assets/cardFavorite.css"
 
 function CardFavorite({city, description, icon, temperature}){
 
     return(
-        <div className="CardFavorite">
-            <h3>{city}</h3>
+            <div className="cardFavorite" >
+        <div className="cardDetails">
             <h4>
-                <b>{description }</b>
+            <b >{city}  </b>
+                <p>{description }</p>
+                <p>{temperature + " °C"}  </p>
                 <img src={"http://openweathermap.org/img/wn/"+ icon +"@2x.png"}></img>
-                <b>{temperature + " °C"}  </b>
 
             </h4>
+            </div>
         </div>
     );
 }
