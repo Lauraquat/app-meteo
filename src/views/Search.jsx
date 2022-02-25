@@ -50,16 +50,17 @@ export class SearchCity extends Component {
         return(
             <div className="search">
                 <Header></Header>
-                <h1>Rechercher une ville</h1>
+                <h1 className="title">Rechercher une ville</h1>
                 <p>Rechercher le nom d'une ville pour connaître sa météo !</p>
                 <div className="searchBar">
                     <Search placeholder="Paris" onSearch={this.onSearch}  enterButton />
                 </div>
-                <div >
+                <div className="resultSearch" >
                     {this.state.weatherDescription &&(
-                        <div>
-                            {this.state.isFavorite ? <HeartFilled /> :  <HeartOutlined onClick={() => this.handleFavorite()} />}
-                       
+                        <div className="contentResult">
+                            <div className="iconHeart">
+                                {this.state.isFavorite ? <HeartFilled /> :  <HeartOutlined onClick={() => this.handleFavorite()} />}
+                            </div>
                             <h3><EnvironmentOutlined />{" "+ this.state.city}</h3>
                             <img src={"http://openweathermap.org/img/wn/"+ this.state.weatherIcon +"@2x.png"}></img>
                             <h1>{this.state.weatherTemp + " °C"}</h1>

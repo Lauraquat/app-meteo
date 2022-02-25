@@ -1,6 +1,7 @@
 .localWeather{
     background: linear-gradient(#6b66bd, #00d4ff);
     color: #ffffff;
+    background-attachment: fixed;
 }
 
 .localWeather h3{
