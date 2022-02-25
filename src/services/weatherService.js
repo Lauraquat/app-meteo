@@ -3,8 +3,9 @@ import weatherFactory from "../factory/weatherFactory";
 
 
 const weatherService={
-    getWeather(latitude, longitude){
-        return weatherRepository.fetchWeather(latitude, longitude);
+    async getWeather(latitude, longitude){
+        const weather = await weatherRepository.fetchWeather(latitude, longitude);
+        return weatherFactory.getFormattedLocalWeather(weather);
     },
     
     getTempWithoutDecimal(temperature){
@@ -20,8 +21,7 @@ const weatherService={
 
     getLocationByCity(city){
         return weatherRepository.fetchLocationByCity(city);
-    }
-    
+    }    
 }
 
 export default weatherService
