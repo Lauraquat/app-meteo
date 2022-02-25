@@ -1,5 +1,6 @@
 .localWeather{
-    background: linear-gradient(#6b66bd, #00d4ff);
+    /* background: linear-gradient(#6b66bd, #00d4ff); */
+    background: #5152b5;
     color: #ffffff;
     background-attachment: fixed;
     padding-bottom: 40px;
@@ -10,13 +11,17 @@
     margin-bottom: 0;
     font-size: 3em;
     font-weight: bold;
-    color: #030430;
+    color: white;
 }
 
 .localWeather .details p{
     font-size: 2em;
-    color: #030430;
+    color: white;
     margin-bottom: 70px;
+}
+
+.localWeather h1 {
+    color : white;
 }
 
 hr{
