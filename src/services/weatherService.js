@@ -1,7 +1,6 @@
 import weatherRepository from "../repository/weatherRepository";
 import weatherFactory from "../factory/weatherFactory";
 
-
 const weatherService={
     getWeather(latitude, longitude){
         return weatherRepository.fetchWeather(latitude, longitude);

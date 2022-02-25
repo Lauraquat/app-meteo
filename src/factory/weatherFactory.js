@@ -18,8 +18,8 @@ export default{
     },
     
     getDegreesWithoutDecimal(temp){
-        const degDec = temp;
-        const deg = Math.trunc(degDec);
+        const degDecimal = temp;
+        const deg = Math.trunc(degDecimal);
     
         return deg
     }

@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }
 
 .FavoritePage h1 {
@@ -13,17 +12,14 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
- 
 }
 
 .cardFavorite{
     width: 60%;
     margin: auto;
-    margin-top: 30px;
-    
+    margin-top: 30px; 
     border-radius: 25px;
-    font-size: 1.6em;
-    
+    font-size: 1.6em;  
 }
 
 .cardFavorite h4 {
@@ -45,15 +41,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 40px;
-    
+    margin-top: 40px;   
 }
 
 .deleteButton {
     background: none;
     border: none;
     margin-right: 3rem; 
-
 }
 
 .deleteButton:hover {
@@ -68,8 +62,6 @@
 }
 
 @media (max-width: 767px) {
-    
-
      .favoriteContainer{
         width: 80%;
         display: flex;
@@ -111,11 +103,6 @@
        margin-bottom: 1.5rem;
        margin: auto;
     
-    }
-
-    
-   
-
-    
+    }   
 }
 

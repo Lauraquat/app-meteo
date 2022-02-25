@@ -6,8 +6,6 @@ import weatherService from "../services/weatherService";
 import { addFavorite} from "../store/reducers/favoriteReducer"
 import {HeartOutlined, HeartFilled } from '@ant-design/icons'
 import Header from "../components/Header";
-
-
 import "../assets/searchStyle.css"
 
 const {Search} = Input;
@@ -41,10 +39,8 @@ export class SearchCity extends Component {
         const weatherTemp = cityWeather.main.temp;
         const weatherIcon = cityWeather.weather[0].icon;
         this.setState({city : city,  weatherDescription : weatherDescription, weatherTemp : weatherTemp, weatherIcon : weatherIcon});
-
         this.setState({isFavorite : false})
 
-        // const temperature = this.state.weatherTemp;
         const temperatureWithoutDegree = weatherService.getTempWithoutDecimal(weatherTemp);
         this.setState({weatherTemp:temperatureWithoutDegree});
 
@@ -83,8 +79,7 @@ export class SearchCity extends Component {
 
 const mapDispatchToProps = dispatch => {
     return{
-        addFavorite: (favorite) => dispatch(addFavorite(favorite)),
-        
+        addFavorite: (favorite) => dispatch(addFavorite(favorite)),     
     }
 }
     

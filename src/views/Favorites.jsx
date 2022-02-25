@@ -38,8 +38,7 @@ class Favorites extends Component {
             <div className="FavoritePage">                
                 <Header></Header>
                 <h1>Liste de vos favoris</h1>
-                {this.state.listOfFavorites.map((cardCity, index) => {
-                    
+                {this.state.listOfFavorites.map((cardCity, index) => {    
                     return(
                         <div className="favoriteContainer">
                             <CardFavorite key={index} city={cardCity.city} description={cardCity.description} icon={cardCity.icon} temperature={cardCity.temperature}/>

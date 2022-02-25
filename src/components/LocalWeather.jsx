@@ -19,7 +19,6 @@ class LocalWeather extends Component{
     }
 
     async componentDidMount() {
-
         navigator.geolocation.getCurrentPosition (async (position) => {
     
             let lat =  position.coords.latitude;
@@ -35,7 +34,7 @@ class LocalWeather extends Component{
             const temperatureWithoutDegree = weatherService.getTempWithoutDecimal(temperature);
             this.setState({temperatureWithoutDegree});
         });
-      }
+    }
 
     render(){
         return(

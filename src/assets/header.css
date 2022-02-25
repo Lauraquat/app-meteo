@@ -15,12 +15,11 @@ nav{
 
 @media (max-width: 748px) {
     .header .anticon{
-        width: 100px;
+        width: 80px;
     }
     
     .header svg{
         width: 1.5em;
         height: 1.5em;
-    }
-    
+    }   
 }
